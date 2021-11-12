@@ -1,0 +1,7 @@
+.profile {
+  font-family: "Inter", "Arial", sans-serif;
+  font-style: normal;
+  color: white;
+  display: grid;
+  grid-template: 1fr 1fr / ;
+}
