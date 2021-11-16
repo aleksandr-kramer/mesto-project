@@ -1,0 +1,6 @@
+.card__mesto {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  align-self: center;
+  padding: 31px 21px 31px 21px;
+}

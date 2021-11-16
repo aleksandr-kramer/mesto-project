@@ -3,5 +3,5 @@
   font-style: normal;
   color: white;
   display: grid;
-  grid-template: 1fr 1fr / ;
+  grid-template: 60px 60px / 120px fit-content(600px) auto 1fr;
 }

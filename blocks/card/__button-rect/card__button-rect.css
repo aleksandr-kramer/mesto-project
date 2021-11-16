@@ -1,0 +1,23 @@
+.card__button-rect {
+  height: 30px;
+  width: 30px;
+  /*padding: 0;*/
+  border-width: 0px;
+  border-color:white;
+  border-style: solid;
+  background-color: white;
+  box-sizing: border-box;
+  background-image: url(../../../images/elements/like_button.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0 21px 0 21px;
+}
+.card__button-rect:hover {
+  cursor: pointer;
+  opacity: .5;
+  transition-duration: .3s;
+}
+.card__button-rect:active {
+  opacity: 1;
+  background-image: url(../../../images/elements/like_button_active_black.svg);
+}

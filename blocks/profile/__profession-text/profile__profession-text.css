@@ -1,0 +1,12 @@
+.profile__profession-text {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  margin: 0;
+  padding-left: 30px;
+  padding-top: 16px;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

@@ -1,0 +1,12 @@
+.profile__name-text {
+  font-size: 42px;
+  line-height: 94%;
+  font-weight: 500;
+  margin: 0;
+  padding-left: 30px;
+  vertical-align: baseline;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

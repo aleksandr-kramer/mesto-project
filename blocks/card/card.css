@@ -1,0 +1,4 @@
+.card {
+  display: grid;
+  grid-template: auto 1fr / minmax(282px, 1fr);
+}

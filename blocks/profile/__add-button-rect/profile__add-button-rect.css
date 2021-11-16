@@ -1,0 +1,18 @@
+.profile__add-button-rect {
+  height: 50px;
+  width: 150px;
+  border-width: 2px;
+  border-color: white;
+  border-style: solid;
+  box-sizing: border-box;
+  background-image: url(../../../images/elements/add_button_profile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 50px;
+  background-color: black;
+}
+.profile__add-button-rect:hover {
+  cursor: pointer;
+  opacity: .6;
+  transition-duration: .3s;
+}

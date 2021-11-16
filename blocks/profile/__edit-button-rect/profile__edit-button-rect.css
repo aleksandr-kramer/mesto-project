@@ -1,0 +1,18 @@
+.profile__edit-button-rect {
+  height: 24px;
+  width: 24px;
+  border-width: 1px;
+  border-color: white;
+  border-style: solid;
+  background-color: black;
+  box-sizing: border-box;
+  background-image: url(../../../images/elements/edit_button_profile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-left: 18px;
+}
+.profile__edit-button-rect:hover {
+  cursor: pointer;
+  opacity: .6;
+  transition-duration: .3s;
+}
