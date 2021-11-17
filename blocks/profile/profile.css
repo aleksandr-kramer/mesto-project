@@ -5,3 +5,8 @@
   display: grid;
   grid-template: 60px 60px / 120px fit-content(600px) auto 1fr;
 }
+@media screen and (max-width: 640px) {
+  .profile {
+    grid-template: auto 1fr 1fr / auto auto;
+  }
+}

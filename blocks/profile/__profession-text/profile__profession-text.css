@@ -5,8 +5,16 @@
   margin: 0;
   padding-left: 30px;
   padding-top: 16px;
-
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+@media screen and (max-width: 640px) {
+  .profile__profession-text {
+    font-size: 14px;
+    line-height: 17px;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 36px;
+  }
 }

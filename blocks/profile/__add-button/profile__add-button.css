@@ -4,3 +4,10 @@
   align-self: center;
   justify-self: end;
 }
+@media screen and (max-width: 640px) {
+  .profile__add-button {
+    grid-row: 4 / 5;
+    grid-column: 1 / 3;
+  }
+
+}

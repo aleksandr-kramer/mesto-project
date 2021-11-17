@@ -1,12 +1,17 @@
 .profile__name-text {
   font-size: 42px;
-  line-height: 94%;
+  line-height: 48px;
   font-weight: 500;
   margin: 0;
   padding-left: 30px;
-  vertical-align: baseline;
-
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+@media screen and (max-width: 640px) {
+  .profile__name-text {
+    font-size: 27px;
+    line-height: 32px;
+    padding-left: 10px;
+  }
 }

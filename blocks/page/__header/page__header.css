@@ -1,9 +1,5 @@
 .page__header {
-  margin-top: 45px;
-  margin-bottom: 40px;
-}
-@media screen and (max-width: 544px) {
-  .page__header {
-    margin-top: 28px;
-  }
+  padding-top: 45px;
+  padding-bottom: 40px;
+  margin: 0 auto;
 }

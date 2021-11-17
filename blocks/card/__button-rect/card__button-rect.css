@@ -1,9 +1,8 @@
 .card__button-rect {
   height: 30px;
   width: 30px;
-  /*padding: 0;*/
   border-width: 0px;
-  border-color:white;
+  border-color: white;
   border-style: solid;
   background-color: white;
   box-sizing: border-box;
@@ -14,8 +13,8 @@
 }
 .card__button-rect:hover {
   cursor: pointer;
-  opacity: .5;
-  transition-duration: .3s;
+  opacity: 0.5;
+  transition-duration: 0.3s;
 }
 .card__button-rect:active {
   opacity: 1;

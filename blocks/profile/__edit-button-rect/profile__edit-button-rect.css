@@ -16,3 +16,12 @@
   opacity: .6;
   transition-duration: .3s;
 }
+@media screen and (max-width: 640px) {
+  .profile__edit-button-rect {
+    width: 18px;
+    height: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 14px;
+  }
+}
