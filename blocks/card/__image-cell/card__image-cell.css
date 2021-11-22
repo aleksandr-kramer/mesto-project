@@ -1,7 +1,8 @@
 .card__image-cell {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
-  padding: 0 0 0 0;
   position: relative;
   overflow: hidden;
+  padding: 0 0 100% 0;
+
 }

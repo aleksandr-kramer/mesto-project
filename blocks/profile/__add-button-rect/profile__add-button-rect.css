@@ -6,6 +6,7 @@
   border-style: solid;
   box-sizing: border-box;
   background-image: url(../../../images/elements/add_button_profile.svg);
+  background-size: 22px 22px;
   background-repeat: no-repeat;
   background-position: center;
   margin-left: 50px;
@@ -22,5 +23,6 @@
     margin-left: 0;
     padding: 0;
     justify-self: center;
+    background-size: 16px 16px;
   }
 }

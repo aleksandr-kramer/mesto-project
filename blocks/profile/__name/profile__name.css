@@ -9,8 +9,8 @@
 @media screen and (max-width: 640px) {
   .profile__name {
     grid-row: 2 / 3;
-    grid-column: 1 / 2;
-    justify-self: end;
+    grid-column: 2 / 3;
+    justify-self: center;
     padding-bottom: 14px;
   }
 }
