@@ -13,8 +13,8 @@
 }
 .profile__edit-button-rect:hover {
   cursor: pointer;
-  opacity: .6;
-  transition-duration: .3s;
+  opacity: 0.6;
+  transition-duration: 0.3s;
 }
 @media screen and (max-width: 640px) {
   .profile__edit-button-rect {
