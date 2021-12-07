@@ -28,9 +28,7 @@
             type="button"
             class="profile__add-button profile__add-button-rect"
           ></button>
-          <p class="profile__profession profile__profession-text">
-            Исследователь океана
-          </p>
+          <p class="profile__profession profile__profession-text">Исследователь океана</p>
         </section>
         <section class="elements">
           <article class="card">
@@ -139,23 +137,23 @@
         <p class="footer__text">© 2020 Mesto Russia</p>
       </footer>
     </div>
-    <div class="popup">
+    <div class="popup popupprofile">
       <div class="popup__content">
         <button type="button" class="popup__close"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <form name="edit-profile">
           <fieldset class="popup__input-text">
             <input
-              class="popup__text"
+              class="popup__text inputprofilename"
               type="text"
               name="name"
-              value="Жак-Ив Кусто"
+              value=""
             />
             <input
-              class="popup__text"
+              class="popup__text inputprofileprofession"
               type="text"
               name="profession"
-              value="Исследователь океана"
+              value=""
             />
           </fieldset>
           <fieldset class="popup__save-text">
@@ -164,5 +162,32 @@
         </form>
       </div>
     </div>
+
+    <div class="popup popupmesto">
+      <div class="popup__content">
+        <button type="button" class="popup__close"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form name="add_mesto">
+          <fieldset class="popup__input-text">
+            <input
+              class="popup__text"
+              type="text"
+              name="mesto"
+              placeholder="Название"
+            />
+            <input
+              class="popup__text"
+              type="text"
+              name="link"
+              placeholder="Ссылка на картинку"
+            />
+          </fieldset>
+          <fieldset class="popup__save-text">
+            <button type="submit" class="popup__button-save">Создать</button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
