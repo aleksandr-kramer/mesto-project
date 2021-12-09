@@ -5,7 +5,7 @@ const profileProfessionText = profile.querySelector(".profile__profession-text")
 const buttonProfileOpen = profile.querySelector(".profile__edit-button"); // Кнопка отрытия popup профиля
 const buttonProfileClose = popupProfile.querySelector(".popup__close"); // Кнопка закрытия popup профиля
 const buttonProfileSave = popupProfile.querySelector(".popup__button-save"); // Кнопка сохранения popup профиля
-const formEditProfile = popupProfile.querySelector(".edit-profile"); // Форма редактирования popup профиля
+const formEditProfile = popupProfile.querySelector(".formEditProfile"); // Форма редактирования popup профиля
 const inputProfileName = popupProfile.querySelector(".inputprofilename"); // Текстовое поле для ввода имени профиля
 const inputProfileProfession = popupProfile.querySelector(".inputprofileprofession"); // Текстовое поле для ввода профессии
 
