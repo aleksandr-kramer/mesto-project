@@ -28,109 +28,27 @@
             type="button"
             class="profile__add-button profile__add-button-rect"
           ></button>
-          <p class="profile__profession profile__profession-text">Исследователь океана</p>
+          <p class="profile__profession profile__profession-text">
+            Исследователь океана
+          </p>
         </section>
         <section class="elements">
-          <article class="card">
-            <div class="card__image-cell">
-              <img
-                class="card__image"
-                src="./images/places/ohrid.jpeg"
-                alt="Озеро Охрид, Северная Македония"
-              />
-            </div>
-            <div class="card__group">
-              <h2 class="card__mesto card__mesto-text">
-                Озеро Охрид, Северная Македония
-              </h2>
-              <button
-                type="button"
-                class="card__button card__button-rect"
-              ></button>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__image-cell">
-              <img
-                class="card__image"
-                src="./images/places/dombai.jpg"
-                alt="Домбай"
-              />
-            </div>
-            <div class="card__group">
-              <h2 class="card__mesto card__mesto-text">Домбай</h2>
-              <button
-                type="button"
-                class="card__button card__button-rect"
-              ></button>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__image-cell">
-              <img
-                class="card__image"
-                src="./images/places/elbrus.jpg"
-                alt="Гора Эльбрус"
-              />
-            </div>
-            <div class="card__group">
-              <h2 class="card__mesto card__mesto-text">Гора Эльбрус</h2>
-              <button
-                type="button"
-                class="card__button card__button-rect"
-              ></button>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__image-cell">
-              <img
-                class="card__image"
-                src="./images/places/karachaevsk.jpg"
-                alt="Карачаевск"
-              />
-            </div>
-            <div class="card__group">
-              <h2 class="card__mesto card__mesto-text">Карачаевск</h2>
-              <button
-                type="button"
-                class="card__button card__button-rect"
-              ></button>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__image-cell">
-              <img
-                class="card__image"
-                src="./images/places/lovchen.jpeg"
-                alt="Гора Ловчен, Черногория"
-              />
-            </div>
-            <div class="card__group">
-              <h2 class="card__mesto card__mesto-text">
-                Гора Ловчен, Черногория
-              </h2>
-              <button
-                type="button"
-                class="card__button card__button-rect"
-              ></button>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card__image-cell">
-              <img
-                class="card__image"
-                src="./images/places/saloniki.jpeg"
-                alt="Салоники, Греция"
-              />
-            </div>
-            <div class="card__group">
-              <h2 class="card__mesto card__mesto-text">Салоники, Греция</h2>
-              <button
-                type="button"
-                class="card__button card__button-rect"
-              ></button>
-            </div>
-          </article>
+          <template id="card">
+            <article class="card">
+              <div class="card__image-cell">
+                <img
+                  class="card__image"
+                />
+              </div>
+              <div class="card__group">
+                <h2 class="card__mesto card__mesto-text"></h2>
+                <button
+                  type="button"
+                  class="card__button card__button-rect"
+                ></button>
+              </div>
+            </article>
+          </template>
         </section>
       </main>
       <footer class="footer page__footer">
