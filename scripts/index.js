@@ -1,5 +1,6 @@
 const profile = document.querySelector(".profile");
 const popupProfile = document.querySelector(".popupprofile");
+const popupMesto = document.querySelector('.popupmesto')
 const profileNameText = profile.querySelector(".profile__name-text"); // Элемент h1 с именем профиля
 const profileProfessionText = profile.querySelector(".profile__profession-text"); // Элемент страницы с названием профессии
 const buttonProfileOpen = profile.querySelector(".profile__edit-button"); // Кнопка отрытия popup профиля
@@ -8,8 +9,14 @@ const buttonProfileSave = popupProfile.querySelector(".popup__button-save"); // 
 const formEditProfile = popupProfile.querySelector(".formEditProfile"); // Форма редактирования popup профиля
 const inputProfileName = popupProfile.querySelector(".inputprofilename"); // Текстовое поле для ввода имени профиля
 const inputProfileProfession = popupProfile.querySelector(".inputprofileprofession"); // Текстовое поле для ввода профессии
+const buttonNewMesto = profile.querySelector(".profile__add-button"); // Кнопка отрытия popup добавления нового места
+const buttonNewMestoClose = popupMesto.querySelector(".popup__close"); // Кнопка закрытия popup нового места
+const buttonNewMestoSave = popupMesto.querySelector(".popup__button-save"); // Кнопка сохранения popup нового места
+const formAddNewMesto = popupMesto.querySelector('.formaddnewmesto'); // Форма добавления нового места
+const inputNewMestoName = popupMesto.querySelector(".inputnewmestoname"); // Текстовое поле для ввода названия нового места
+const inputNewMestoLink = popupMesto.querySelector(".inputnewmestolink"); // Текстовое поле для ввода ссылки на картинку
 
-// массив карточек
+// массив карточек с местами
 const initialCards = [
   {
     name: "Архыз",
@@ -83,3 +90,13 @@ function editFormProfession(evt) {
 
 // Отслеживаем нажатие кнопки "Сохранить" в форме редактирования профиля
 formEditProfile.addEventListener("submit", editFormProfession);
+
+// Открываем popup окно добавления нового места
+buttonNewMesto.addEventListener('click', function() {
+  popupMesto.classList.add('popup_opened');
+});
+
+// Закрываем окно добавления нового места без сохранения
+buttonNewMestoClose.addEventListener('click', function() {
+  popupMesto.classList.remove('popup_opened');
+});
