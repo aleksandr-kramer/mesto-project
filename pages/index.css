@@ -24,10 +24,12 @@
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__image/card__image.css);
+@import url(../blocks/card/__trash/card__trash.css);
 @import url(../blocks/card/__image-cell/card__image-cell.css);
 @import url(../blocks/card/__group/card__group.css);
 @import url(../blocks/card/__button/card__button.css);
 @import url(../blocks/card/__button-rect/card__button-rect.css);
+@import url(../blocks/card/__button/_black/card__button_black.css);
 @import url(../blocks/card/__mesto/card__mesto.css);
 @import url(../blocks/card/__mesto-text/card__mesto-text.css);
 @import url(../blocks/footer/footer.css);

@@ -1,18 +1,22 @@
 const profile = document.querySelector(".profile");
 const popupProfile = document.querySelector(".popupprofile");
-const popupMesto = document.querySelector('.popupmesto')
+const popupMesto = document.querySelector(".popupmesto");
 const profileNameText = profile.querySelector(".profile__name-text"); // Элемент h1 с именем профиля
-const profileProfessionText = profile.querySelector(".profile__profession-text"); // Элемент страницы с названием профессии
+const profileProfessionText = profile.querySelector(
+  ".profile__profession-text"
+); // Элемент страницы с названием профессии
 const buttonProfileOpen = profile.querySelector(".profile__edit-button"); // Кнопка отрытия popup профиля
 const buttonProfileClose = popupProfile.querySelector(".popup__close"); // Кнопка закрытия popup профиля
 const buttonProfileSave = popupProfile.querySelector(".popup__button-save"); // Кнопка сохранения popup профиля
 const formEditProfile = popupProfile.querySelector(".formEditProfile"); // Форма редактирования popup профиля
 const inputProfileName = popupProfile.querySelector(".inputprofilename"); // Текстовое поле для ввода имени профиля
-const inputProfileProfession = popupProfile.querySelector(".inputprofileprofession"); // Текстовое поле для ввода профессии
+const inputProfileProfession = popupProfile.querySelector(
+  ".inputprofileprofession"
+); // Текстовое поле для ввода профессии
 const buttonNewMesto = profile.querySelector(".profile__add-button"); // Кнопка отрытия popup добавления нового места
 const buttonNewMestoClose = popupMesto.querySelector(".popup__close"); // Кнопка закрытия popup нового места
 const buttonNewMestoSave = popupMesto.querySelector(".popup__button-save"); // Кнопка сохранения popup нового места
-const formAddNewMesto = popupMesto.querySelector('.formaddnewmesto'); // Форма добавления нового места
+const formAddNewMesto = popupMesto.querySelector(".formaddnewmesto"); // Форма добавления нового места
 const inputNewMestoName = popupMesto.querySelector(".inputnewmestoname"); // Текстовое поле для ввода названия нового места
 const inputNewMestoLink = popupMesto.querySelector(".inputnewmestolink"); // Текстовое поле для ввода ссылки на картинку
 
@@ -62,8 +66,12 @@ initialCards.forEach(function (item) {
   const cardElements = cardTemplate.querySelector(".card").cloneNode(true); // Клонирование содержимое тега Template
   cardElements.querySelector(".card__image").src = item.link;
   cardElements.querySelector(".card__image").alt = item.name;
-
   cardElements.querySelector(".card__mesto-text").textContent = item.name;
+  cardElements
+    .querySelector(".card__button")
+    .addEventListener("click", function (event) {
+      event.target.classList.toggle("card__button_black");
+    });
   sectionElements.append(cardElements); // Вставляем в разметку новую карточку места
 });
 
@@ -92,11 +100,34 @@ function editFormProfession(evt) {
 formEditProfile.addEventListener("submit", editFormProfession);
 
 // Открываем popup окно добавления нового места
-buttonNewMesto.addEventListener('click', function() {
-  popupMesto.classList.add('popup_opened');
+buttonNewMesto.addEventListener("click", function () {
+  popupMesto.classList.add("popup_opened");
 });
 
 // Закрываем окно добавления нового места без сохранения
-buttonNewMestoClose.addEventListener('click', function() {
-  popupMesto.classList.remove('popup_opened');
+buttonNewMestoClose.addEventListener("click", function () {
+  popupMesto.classList.remove("popup_opened");
 });
+
+// Функция добавления нового места в popup
+function addFormNewMesto(evt) {
+  evt.preventDefault();
+  const newMestoName = inputNewMestoName.value;
+  const newMestoLink = inputNewMestoLink.value;
+  const sectionElements = document.querySelector(".elements"); // Секция html с перечислением карточек мест
+  const cardTemplate = document.querySelector("#card").content; // Получаем содержимое заготовленной (template) карточки места
+  const cardElements = cardTemplate.querySelector(".card").cloneNode(true); // Клонирование содержимое тега Template
+  cardElements.querySelector(".card__image").src = newMestoLink;
+  cardElements.querySelector(".card__image").alt = newMestoName;
+  cardElements.querySelector(".card__mesto-text").textContent = newMestoName;
+  cardElements
+    .querySelector(".card__button")
+    .addEventListener("click", function (event) {
+      event.target.classList.toggle("card__button_black");
+    });
+
+  sectionElements.prepend(cardElements);
+  popupMesto.classList.remove("popup_opened");
+}
+//Отслеживаем нажатие кнопки "Создать" в popup нового места
+formAddNewMesto.addEventListener("submit", addFormNewMesto);
