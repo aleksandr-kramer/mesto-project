@@ -60,6 +60,7 @@ const initialCards = [
   },
 ];
 
+// Перебираем подготовленный массив карточек и вставляем их в разметку. Используем template
 initialCards.forEach(function (item) {
   const sectionElements = document.querySelector(".elements"); // Секция html с перечислением карточек мест
   const cardTemplate = document.querySelector("#card").content; // Получаем содержимое заготовленной (template) карточки места
@@ -67,12 +68,20 @@ initialCards.forEach(function (item) {
   cardElements.querySelector(".card__image").src = item.link;
   cardElements.querySelector(".card__image").alt = item.name;
   cardElements.querySelector(".card__mesto-text").textContent = item.name;
+  //Реализация лайка для карточки
   cardElements
     .querySelector(".card__button")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("card__button_black");
     });
-  sectionElements.append(cardElements); // Вставляем в разметку новую карточку места
+  // Удаление карточки
+  cardElements
+    .querySelector(".card__trash")
+    .addEventListener("click", function (event) {
+      event.target.closest(".card").remove();
+    });
+  // Вставляем в разметку новую карточку места
+  sectionElements.append(cardElements);
 });
 
 // Открываем popup окно редактирования профиля
@@ -124,6 +133,13 @@ function addFormNewMesto(evt) {
     .querySelector(".card__button")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("card__button_black");
+    });
+
+  // Удаление карточки
+  cardElements
+    .querySelector(".card__trash")
+    .addEventListener("click", function (event) {
+      event.target.closest(".card").remove();
     });
 
   sectionElements.prepend(cardElements);
