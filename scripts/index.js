@@ -1,6 +1,7 @@
 const profile = document.querySelector(".profile");
 const popupProfile = document.querySelector(".popupprofile");
 const popupMesto = document.querySelector(".popupmesto");
+const popupImage = document.querySelector(".popup-image"); // popup увеличенной картинки
 const profileNameText = profile.querySelector(".profile__name-text"); // Элемент h1 с именем профиля
 const profileProfessionText = profile.querySelector(
   ".profile__profession-text"
@@ -19,6 +20,9 @@ const buttonNewMestoSave = popupMesto.querySelector(".popup__button-save"); // �
 const formAddNewMesto = popupMesto.querySelector(".formaddnewmesto"); // Форма добавления нового места
 const inputNewMestoName = popupMesto.querySelector(".inputnewmestoname"); // Текстовое поле для ввода названия нового места
 const inputNewMestoLink = popupMesto.querySelector(".inputnewmestolink"); // Текстовое поле для ввода ссылки на картинку
+const popupImageImage = popupImage.querySelector(".popup-image__image"); // Увеличенная картинка в popup
+const popupImageClose = popupImage.querySelector(".popup-image__close"); // Кнопка закрытия popup увеличенной картинки
+const popupImageCaption = popupImage.querySelector(".popup-image__caption"); // Подпись к картинке в popup
 
 // массив карточек с местами
 const initialCards = [
@@ -80,6 +84,16 @@ initialCards.forEach(function (item) {
     .addEventListener("click", function (event) {
       event.target.closest(".card").remove();
     });
+  // Просмотр увеличенной карточки
+  cardElements
+    .querySelector(".card__image")
+    .addEventListener("click", function (event) {
+      popupImageImage.src = event.target.src;
+      popupImageImage.alt = event.target.alt;
+      popupImageCaption.textContent = event.target.alt;
+      popupImage.classList.add("popup_opened");
+    });
+
   // Вставляем в разметку новую карточку места
   sectionElements.append(cardElements);
 });
@@ -142,8 +156,23 @@ function addFormNewMesto(evt) {
       event.target.closest(".card").remove();
     });
 
+  // Просмотр увеличенной карточки
+  cardElements
+    .querySelector(".card__image")
+    .addEventListener("click", function (event) {
+      popupImageImage.src = event.target.src;
+      popupImageImage.alt = event.target.alt;
+      popupImageCaption.textContent = event.target.alt;
+      popupImage.classList.add("popup_opened");
+    });
+
   sectionElements.prepend(cardElements);
   popupMesto.classList.remove("popup_opened");
 }
 //Отслеживаем нажатие кнопки "Создать" в popup нового места
 formAddNewMesto.addEventListener("submit", addFormNewMesto);
+
+// Закрываем окно просмотра увеличенной карточки
+popupImageClose.addEventListener("click", function () {
+  popupImage.classList.remove("popup_opened");
+});
