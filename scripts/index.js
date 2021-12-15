@@ -7,6 +7,7 @@ const profileProfessionText = profile.querySelector(
   ".profile__profession-text"
 ); // Элемент страницы с названием профессии
 const sectionElements = document.querySelector(".elements"); // Секция html с перечислением карточек мест
+const cardTemplate = sectionElements.querySelector("#card").content;
 const buttonProfileOpen = profile.querySelector(".profile__edit-button"); // Кнопка отрытия popup профиля
 const buttonProfileClose = popupProfile.querySelector(".popup__close"); // Кнопка закрытия popup профиля
 const buttonProfileSave = popupProfile.querySelector(".popup__button-save"); // Кнопка сохранения popup профиля
@@ -66,7 +67,6 @@ const initialCards = [
 ];
 // Функция создания карточки
 function createCard(item) {
-  const cardTemplate = document.querySelector("#card").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardText = cardElement.querySelector(".card__mesto-text");
@@ -110,7 +110,6 @@ function closePopup(popup) {
 }
 // Перебираем подготовленный массив карточек и вставляем их в разметку. Используем template
 initialCards.forEach(function (item) {
-  createCard(item);
   sectionElements.append(createCard(item));
 });
 // Открываем popup окно редактирования профиля, Подставляем значения в поля input со страницы сайта
@@ -146,10 +145,9 @@ function addFormNewMesto(evt) {
   const item = [];
   item.name = inputNewMestoName.value;
   item.link = inputNewMestoLink.value;
-  createCard(item);
   sectionElements.prepend(createCard(item));
-  popupMesto.querySelector(".inputnewmestoname").value = "";
-  popupMesto.querySelector(".inputnewmestolink").value = "";
+  inputNewMestoName.value = "";
+  inputNewMestoLink.value = "";
   closePopup(popupMesto);
 }
 //Отслеживаем нажатие кнопки "Создать" в popup нового места
