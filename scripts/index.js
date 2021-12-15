@@ -1,11 +1,12 @@
 const profile = document.querySelector(".profile");
 const popupProfile = document.querySelector(".popupprofile");
 const popupMesto = document.querySelector(".popupmesto");
-const popupImage = document.querySelector(".popup-image"); // popup увеличенной картинки
+const popupImage = document.querySelector(".popup_image"); // popup увеличенной картинки
 const profileNameText = profile.querySelector(".profile__name-text"); // Элемент h1 с именем профиля
 const profileProfessionText = profile.querySelector(
   ".profile__profession-text"
 ); // Элемент страницы с названием профессии
+const sectionElements = document.querySelector(".elements"); // Секция html с перечислением карточек мест
 const buttonProfileOpen = profile.querySelector(".profile__edit-button"); // Кнопка отрытия popup профиля
 const buttonProfileClose = popupProfile.querySelector(".popup__close"); // Кнопка закрытия popup профиля
 const buttonProfileSave = popupProfile.querySelector(".popup__button-save"); // Кнопка сохранения popup профиля
@@ -21,7 +22,7 @@ const formAddNewMesto = popupMesto.querySelector(".formaddnewmesto"); // Фор�
 const inputNewMestoName = popupMesto.querySelector(".inputnewmestoname"); // Текстовое поле для ввода названия нового места
 const inputNewMestoLink = popupMesto.querySelector(".inputnewmestolink"); // Текстовое поле для ввода ссылки на картинку
 const popupImageImage = popupImage.querySelector(".popup-image__image"); // Увеличенная картинка в popup
-const popupImageClose = popupImage.querySelector(".popup-image__close"); // Кнопка закрытия popup увеличенной картинки
+const popupImageClose = popupImage.querySelector(".popup__close"); // Кнопка закрытия popup увеличенной картинки
 const popupImageCaption = popupImage.querySelector(".popup-image__caption"); // Подпись к картинке в popup
 
 // массив карточек с местами
@@ -63,116 +64,97 @@ const initialCards = [
     link: "./images/places/saloniki.jpeg",
   },
 ];
+// Функция создания карточки
+function createCard(item) {
+  const cardTemplate = document.querySelector("#card").content;
+  const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
+  const cardImage = cardElement.querySelector(".card__image");
+  const cardText = cardElement.querySelector(".card__mesto-text");
 
-// Перебираем подготовленный массив карточек и вставляем их в разметку. Используем template
-initialCards.forEach(function (item) {
-  const sectionElements = document.querySelector(".elements"); // Секция html с перечислением карточек мест
-  const cardTemplate = document.querySelector("#card").content; // Получаем содержимое заготовленной (template) карточки места
-  const cardElements = cardTemplate.querySelector(".card").cloneNode(true); // Клонирование содержимое тега Template
-  cardElements.querySelector(".card__image").src = item.link;
-  cardElements.querySelector(".card__image").alt = item.name;
-  cardElements.querySelector(".card__mesto-text").textContent = item.name;
-  //Реализация лайка для карточки
-  cardElements
+  cardImage.src = item.link;
+  cardImage.alt = item.name;
+  cardText.textContent = item.name;
+
+  cardElement
     .querySelector(".card__button")
     .addEventListener("click", function (event) {
       event.target.classList.toggle("card__button_black");
     });
+
   // Удаление карточки
-  cardElements
+  cardElement
     .querySelector(".card__trash")
     .addEventListener("click", function (event) {
       event.target.closest(".card").remove();
     });
+
   // Просмотр увеличенной карточки
-  cardElements
+  cardElement
     .querySelector(".card__image")
     .addEventListener("click", function (event) {
       popupImageImage.src = event.target.src;
       popupImageImage.alt = event.target.alt;
       popupImageCaption.textContent = event.target.alt;
-      popupImage.classList.add("popup_opened");
+      openPopup(popupImage);
     });
 
-  // Вставляем в разметку новую карточку места
-  sectionElements.append(cardElements);
+  return cardElement;
+}
+// Функция открытия popup окошек
+function openPopup(popup) {
+  popup.classList.add("popup_opened");
+}
+// Функция закрытия popup окошек
+function closePopup(popup) {
+  popup.classList.remove("popup_opened");
+}
+// Перебираем подготовленный массив карточек и вставляем их в разметку. Используем template
+initialCards.forEach(function (item) {
+  createCard(item);
+  sectionElements.append(createCard(item));
 });
-
-// Открываем popup окно редактирования профиля
-// Подставляем значения в поля input со страницы сайта
+// Открываем popup окно редактирования профиля, Подставляем значения в поля input со страницы сайта
 buttonProfileOpen.addEventListener("click", function () {
-  popupProfile.classList.add("popup_opened");
+  openPopup(popupProfile);
   inputProfileName.value = profileNameText.textContent;
   inputProfileProfession.value = profileProfessionText.textContent;
 });
-
 // Закрываем popup окно редактирования профиля без редактирования, крестиком
 buttonProfileClose.addEventListener("click", function () {
-  popupProfile.classList.remove("popup_opened");
+  closePopup(popupProfile);
 });
-
 // Функция закрытия окна редактирования с сохранением изменений
 function editFormProfession(evt) {
   evt.preventDefault();
   profileNameText.textContent = inputProfileName.value;
   profileProfessionText.textContent = inputProfileProfession.value;
-  popupProfile.classList.remove("popup_opened");
+  closePopup(popupProfile);
 }
-
 // Отслеживаем нажатие кнопки "Сохранить" в форме редактирования профиля
 formEditProfile.addEventListener("submit", editFormProfession);
-
 // Открываем popup окно добавления нового места
 buttonNewMesto.addEventListener("click", function () {
-  popupMesto.classList.add("popup_opened");
+  openPopup(popupMesto);
 });
-
 // Закрываем окно добавления нового места без сохранения
 buttonNewMestoClose.addEventListener("click", function () {
-  popupMesto.classList.remove("popup_opened");
+  closePopup(popupMesto);
 });
-
 // Функция добавления нового места в popup
 function addFormNewMesto(evt) {
   evt.preventDefault();
-  const newMestoName = inputNewMestoName.value;
-  const newMestoLink = inputNewMestoLink.value;
-  const sectionElements = document.querySelector(".elements"); // Секция html с перечислением карточек мест
-  const cardTemplate = document.querySelector("#card").content; // Получаем содержимое заготовленной (template) карточки места
-  const cardElements = cardTemplate.querySelector(".card").cloneNode(true); // Клонирование содержимое тега Template
-  cardElements.querySelector(".card__image").src = newMestoLink;
-  cardElements.querySelector(".card__image").alt = newMestoName;
-  cardElements.querySelector(".card__mesto-text").textContent = newMestoName;
-  cardElements
-    .querySelector(".card__button")
-    .addEventListener("click", function (event) {
-      event.target.classList.toggle("card__button_black");
-    });
-
-  // Удаление карточки
-  cardElements
-    .querySelector(".card__trash")
-    .addEventListener("click", function (event) {
-      event.target.closest(".card").remove();
-    });
-
-  // Просмотр увеличенной карточки
-  cardElements
-    .querySelector(".card__image")
-    .addEventListener("click", function (event) {
-      popupImageImage.src = event.target.src;
-      popupImageImage.alt = event.target.alt;
-      popupImageCaption.textContent = event.target.alt;
-      popupImage.classList.add("popup_opened");
-    });
-
-  sectionElements.prepend(cardElements);
-  popupMesto.classList.remove("popup_opened");
+  const item = [];
+  item.name = inputNewMestoName.value;
+  item.link = inputNewMestoLink.value;
+  createCard(item);
+  sectionElements.prepend(createCard(item));
+  popupMesto.querySelector(".inputnewmestoname").value = "";
+  popupMesto.querySelector(".inputnewmestolink").value = "";
+  closePopup(popupMesto);
 }
 //Отслеживаем нажатие кнопки "Создать" в popup нового места
 formAddNewMesto.addEventListener("submit", addFormNewMesto);
-
 // Закрываем окно просмотра увеличенной карточки
 popupImageClose.addEventListener("click", function () {
-  popupImage.classList.remove("popup_opened");
+  closePopup(popupImage);
 });
