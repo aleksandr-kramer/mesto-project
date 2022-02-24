@@ -1,0 +1,18 @@
+.error-message {
+  display: block;
+  padding-top: 5px;
+  padding-left: 34px;
+  box-sizing: border-box;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15px;
+  color: rgba(255, 0, 0, 1);
+  transition: 0.3s;
+  opacity: 0;
+}
+@media screen and (max-width: 640px) {
+  .error-message {
+    padding-left: 20px;
+  }
+}
