@@ -4,7 +4,7 @@ import {
   openPopup,
   closePopup,
   editFormProfession,
-  addFormNewMesto,
+  addNewCard,
   closeByEscape,
 } from "./modal";
 import { validationConfig, enableValidation } from "./validate";
@@ -55,7 +55,7 @@ buttonNewMestoClose.addEventListener("click", function () {
   closePopup(popupMesto);
 });
 //Отслеживаем нажатие кнопки "Создать" в popup нового места
-formAddNewMesto.addEventListener("submit", addFormNewMesto);
+formAddNewMesto.addEventListener("submit", addNewCard);
 // Закрываем окно просмотра увеличенной карточки
 popupImageClose.addEventListener("click", function () {
   closePopup(popupImage);

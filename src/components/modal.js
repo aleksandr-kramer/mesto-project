@@ -14,7 +14,7 @@ const inputProfileProfession = popupProfile.querySelector(
 const inputNewMestoName = popupMesto.querySelector(".inputnewmestoname");
 const inputNewMestoLink = popupMesto.querySelector(".inputnewmestolink");
 const sectionElements = document.querySelector(".elements");
-
+const buttonNewMesto = popupMesto.querySelector(".button_new_mesto");
 // Функция закрытия popUp по Escape
 export function closeByEscape(evt) {
   if (evt.key === "Escape") {
@@ -43,13 +43,15 @@ export function editFormProfession(evt) {
 }
 
 // Функция добавления нового места в popup
-export function addFormNewMesto(evt) {
+export function addNewCard(evt) {
   evt.preventDefault();
-  const item = [];
+  const item = {};
   item.name = inputNewMestoName.value;
   item.link = inputNewMestoLink.value;
   sectionElements.prepend(createCard(item));
   inputNewMestoName.value = "";
   inputNewMestoLink.value = "";
+  buttonNewMesto.classList.add("popup__button-save_disabled");
+  buttonNewMesto.disabled = true;
   closePopup(popupMesto);
 }
