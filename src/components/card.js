@@ -7,10 +7,9 @@ const popupImageImage = popupImage.querySelector(".popup-image__image");
 const popupImageCaption = popupImage.querySelector(".popup-image__caption");
 
 // массив карточек с местами
-const ohrid = new URL('../images/places/ohrid.jpeg', import.meta.url);
-const lovchen = new URL('../images/places/lovchen.jpeg', import.meta.url);
-const saloniki = new URL('../images/places/saloniki.jpeg', import.meta.url);
-
+const ohrid = new URL("../images/places/ohrid.jpeg", import.meta.url);
+const lovchen = new URL("../images/places/lovchen.jpeg", import.meta.url);
+const saloniki = new URL("../images/places/saloniki.jpeg", import.meta.url);
 
 export const initialCards = [
   {
@@ -55,6 +54,7 @@ export function createCard(item) {
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
   const cardText = cardElement.querySelector(".card__mesto-text");
+  const cardTrash = cardElement.querySelector(".card__trash");
 
   cardImage.src = item.link;
   cardImage.alt = item.name;
@@ -67,11 +67,9 @@ export function createCard(item) {
     });
 
   // Удаление карточки
-  cardElement
-    .querySelector(".card__trash")
-    .addEventListener("click", function (event) {
-      event.target.closest(".card").remove();
-    });
+  cardTrash.addEventListener("click", function (event) {
+    event.target.closest(".card").remove();
+  });
 
   // Просмотр увеличенной карточки
   cardElement

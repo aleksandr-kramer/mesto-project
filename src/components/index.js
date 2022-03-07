@@ -5,6 +5,7 @@ import {
   closePopup,
   editFormProfession,
   addFormNewMesto,
+  closeByEscape,
 } from "./modal";
 import { validationConfig, enableValidation } from "./validate";
 
@@ -70,11 +71,7 @@ popupProfile.addEventListener("click", function (evt) {
 });
 
 // Закрытие окна редактирования профиля по Escape
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    closePopup(popupProfile);
-  }
-});
+document.addEventListener("keydown", closeByEscape);
 
 // Закрытие окна редактирования места по клику мыши за пределами popup
 popupMesto.addEventListener("click", function (evt) {
@@ -83,23 +80,9 @@ popupMesto.addEventListener("click", function (evt) {
   }
 });
 
-// Закрытие окна редактирования места по Escape
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
-    closePopup(popupMesto);
-  }
-});
-
 // Закрытие окна просмотра рисунка по клику мыши за пределами popup
 popupImage.addEventListener("click", function (evt) {
   if (evt.target === popupImage) {
-    closePopup(popupImage);
-  }
-});
-
-// Закрытие окна просмотра рисунка по Escape
-document.addEventListener("keydown", function (evt) {
-  if (evt.key === "Escape") {
     closePopup(popupImage);
   }
 });
