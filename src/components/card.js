@@ -72,14 +72,12 @@ export function createCard(item) {
   });
 
   // Просмотр увеличенной карточки
-  cardElement
-    .querySelector(".card__image")
-    .addEventListener("click", function (event) {
-      popupImageImage.src = event.target.src;
-      popupImageImage.alt = event.target.alt;
-      popupImageCaption.textContent = event.target.alt;
-      openPopup(popupImage);
-    });
+  cardImage.addEventListener("click", function (event) {
+    popupImageImage.src = event.target.src;
+    popupImageImage.alt = event.target.alt;
+    popupImageCaption.textContent = event.target.alt;
+    openPopup(popupImage);
+  });
 
   return cardElement;
 }

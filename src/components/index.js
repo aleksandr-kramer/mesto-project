@@ -38,7 +38,7 @@ initialCards.forEach(function (item) {
 buttonProfileOpen.addEventListener("click", function () {
   openPopup(popupProfile);
   inputProfileName.value = profileNameText.textContent;
-  inputProfileProfession.value = profileProfessionText.textContent;
+  inputProfileProfession.value = profileProfessionText.textContent.trim();
 });
 // Закрываем popup окно редактирования профиля без редактирования, крестиком
 buttonProfileClose.addEventListener("click", function () {
@@ -71,7 +71,7 @@ popupProfile.addEventListener("click", function (evt) {
 });
 
 // Закрытие окна редактирования профиля по Escape
-document.addEventListener("keydown", closeByEscape);
+//document.addEventListener("keydown", closeByEscape);
 
 // Закрытие окна редактирования места по клику мыши за пределами popup
 popupMesto.addEventListener("click", function (evt) {
